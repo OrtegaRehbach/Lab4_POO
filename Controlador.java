@@ -18,8 +18,13 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
     Contactos contacto_1= new Contactos("Keymer", "12345678");
     Contactos contacto_2= new Contactos("Jose Pablo", "87456321");
     Contactos contacto_3= new Contactos("Ludwing", "12547854");
-    Contactos contacto_4= new Contactos("Jamal", "20545987");
+    Contactos contacto_4= new Contactos("Douglas", "20545987");
     Contactos contacto_5= new Contactos("Elsa Patin", "50405055");
+    TarjetasDePresentacion tarjeta_1= new TarjetasDePresentacion("Keymer", "12345678", "Universidad del Valle de Guatemala z.16", "Estudiante");
+    TarjetasDePresentacion tarjeta_2= new TarjetasDePresentacion("Jose Pablo", "87456321", "Universidad del Valle de Guatemala z.16", "Catedratico");
+    TarjetasDePresentacion tarjeta_3= new TarjetasDePresentacion("Ludwing", "12547854", "Universidad del Valle de Guatemala z.16", "Catedratico");
+    TarjetasDePresentacion tarjeta_4= new TarjetasDePresentacion("Douglas", "20545987", "Universidad del Valle de Guatemala z.16", "Director de Carrera");
+
 
 
     
@@ -39,6 +44,11 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
         radio.getContactos().add(contacto_3);
         radio.getContactos().add(contacto_4);
         radio.getContactos().add(contacto_5);
+        radio.getTarjetas().add(tarjeta_1);
+        radio.getTarjetas().add(tarjeta_2);
+        radio.getTarjetas().add(tarjeta_3);
+        radio.getTarjetas().add(tarjeta_4);
+
 
 
         
@@ -292,6 +302,22 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
     @Override
     public void verTarjetas(ArrayList<String> tarjetas) {
         // TODO Auto-generated method stub
+        
+    }
+
+    public void VerTarjetas() {
+        // TODO Auto-generated method stub
+        int c=0;
+        for (int i = 0; i < radio.getTarjetas().size(); i++){
+            c++;
+            System.out.println("Tarjeta no. "+ c);
+            System.out.println("Nombre: "+radio.getTarjetas().get(i).getNombre());
+            System.out.println("Numero: "+radio.getTarjetas().get(i).getNumero());
+            System.out.println("Direccion: "+radio.getTarjetas().get(i).getDireccion());
+            System.out.println("Oficio: "+radio.getTarjetas().get(i).getOficio());
+            System.out.println("");
+
+        }
         
     }
     

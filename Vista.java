@@ -148,7 +148,8 @@ public void menu(){
             }
             if (eleccion==6){
                 if (crl.getEstadoRadio()==true){
-                    System.out.println("Tarjetas de presentacion");
+                    crl.VerTarjetas();
+
                 }else{
                     invalido();
                 }

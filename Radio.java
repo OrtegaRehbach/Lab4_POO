@@ -18,8 +18,9 @@ public class Radio {
     ArrayList<Contactos> Contactos = new ArrayList<>();
     Boolean EnLlamada;
     ArrayList<Contactos> Llamadas = new ArrayList<>();
+    //tarjetas de presentacion
+    ArrayList<TarjetasDePresentacion> tarjetas = new ArrayList<>();
 
-    
     //
     int UltimoContacto;
 
@@ -37,6 +38,14 @@ public class Radio {
         UltimoContacto = ultimoContacto;
     }
     
+    public ArrayList<TarjetasDePresentacion> getTarjetas() {
+        return tarjetas;
+    }
+
+    public void setTarjetas(ArrayList<TarjetasDePresentacion> tarjetas) {
+        this.tarjetas = tarjetas;
+    }
+
     public ArrayList<Contactos> getLlamadas() {
         return Llamadas;
     }
@@ -44,7 +53,7 @@ public class Radio {
     public void setLlamadas(ArrayList<Contactos> llamadas) {
         Llamadas = llamadas;
     }
-    
+
     public ArrayList<ListaReproduccion> getListasDeReproduccion() {
         return ListasDeReproduccion;
     }

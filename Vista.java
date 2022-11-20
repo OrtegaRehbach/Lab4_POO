@@ -107,7 +107,39 @@ public void menu(){
             }
             if (eleccion==5){
                 if (crl.getEstadoRadio()==true){
-                    System.out.println("entro");
+                    System.out.println("Modo Telefono");
+                    System.out.println("1) Conectar/ Desconectar telefono");
+                    System.out.println("2) Mostrar contactos");
+                    System.out.println("3) Llamar a contacto");
+                    System.out.println("4) Finalizar LLamada");
+                    System.out.println("5) Llamar a último contacto con el que se habló");
+
+                    int eleccion2= scan.nextInt();
+                    if (eleccion2==1){
+                        crl.conectarTelefono();
+
+                    }else if (eleccion2==2){
+                        crl.mstrarContactos();
+                    }
+                    else if (eleccion2==3){
+                        System.out.println("Numero de la persona a llamar: (ej:1 )");
+                        int numero= scan.nextInt();
+                        crl.LlamarContacto(numero);
+
+                    }
+                    else if (eleccion2==4){
+                        crl.FinalizarLlamada();
+                        
+
+                    }
+                    else if (eleccion2==5){
+                        crl.LlamarUltimoContacto();
+                        
+
+                    }
+                    else{
+                        invalido();
+                    }
                 }else{
                     invalido();
                 }
@@ -116,7 +148,7 @@ public void menu(){
             }
             if (eleccion==6){
                 if (crl.getEstadoRadio()==true){
-                    System.out.println("entro");
+                    System.out.println("Tarjetas de presentacion");
                 }else{
                     invalido();
                 }

@@ -15,6 +15,12 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
     Cancion Question= new Cancion("Question...?", "3:31", "Taylor Swift", "pop");
     ListaReproduccion lista1= new ListaReproduccion("lista 1");
     ListaReproduccion lista2= new ListaReproduccion("lista 2");
+    Contactos contacto_1= new Contactos("Keymer", "12345678");
+    Contactos contacto_2= new Contactos("Jose Pablo", "87456321");
+    Contactos contacto_3= new Contactos("Ludwing", "12547854");
+    Contactos contacto_4= new Contactos("Jamal", "20545987");
+    Contactos contacto_5= new Contactos("Elsa Patin", "50405055");
+
 
     
     public Controlador(){
@@ -28,6 +34,12 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
         radio.getListasDeReproduccion().get(1).getCanciones().add(contesto);
         radio.getListasDeReproduccion().get(1).getCanciones().add(Bejeweled);
         radio.getListasDeReproduccion().get(1).getCanciones().add(Question);
+        radio.getContactos().add(contacto_1);
+        radio.getContactos().add(contacto_2);
+        radio.getContactos().add(contacto_3);
+        radio.getContactos().add(contacto_4);
+        radio.getContactos().add(contacto_5);
+
 
         
 
@@ -82,6 +94,7 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
     @Override
     public void conectarTelefono(){
         // TODO Auto-generated method stub
+        radio.setEstadoTelefono();
         
     }
 
@@ -91,21 +104,57 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
         
     }
 
+    public void mstrarContactos() {
+        int c= 0;
+        for (int i = 0; i < radio.getContactos().size(); i++){
+            c++;
+            System.out.println(c+". "+radio.getContactos().get(i).getNombre());
+        }
+    }
+
     @Override
     public void LlamarContacto(int contacto) {
         // TODO Auto-generated method stub
+        if (radio.getEnLlamada()==false){
+            radio.setEnLlamada(true);
+            System.out.println("en llamada con: "+ radio.getContactos().get(contacto-1).getNombre());
+            radio.getLlamadas().add(radio.getContactos().get(contacto-1));
+
+        }else{
+            System.out.println("ya se encuentra en llamada, no puede realizar otra");
+        }
         
     }
 
     @Override
     public void FinalizarLlamada() {
         // TODO Auto-generated method stub
+        radio.setEnLlamada(false);
+        System.out.println("se termino la llamada");
+
         
     }
 
     @Override
     public void llamarUltimoContacto(int ultimoContacto) {
         // TODO Auto-generated method stub
+
+        
+    }
+
+    public void LlamarUltimoContacto() {
+        
+        int tamanioLista= radio.getLlamadas().size();
+        int posicion= tamanioLista-1;
+        if (radio.getEnLlamada()==false){
+            radio.setEnLlamada(true);
+            System.out.println("en llamada con: "+ radio.getContactos().get(posicion).getNombre());
+            radio.getLlamadas().add(radio.getContactos().get(posicion));
+
+        }else{
+            System.out.println("ya se encuentra en llamada, no puede realizar otra");
+        }
+
         
     }
 

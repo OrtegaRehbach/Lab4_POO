@@ -15,8 +15,11 @@ public class Radio {
     int Cancion;
     //modo telefono
     Boolean EstadoTelefono;
-    ArrayList<String> Contactos = new ArrayList<>();
+    ArrayList<Contactos> Contactos = new ArrayList<>();
     Boolean EnLlamada;
+    ArrayList<Contactos> Llamadas = new ArrayList<>();
+
+    
     //
     int UltimoContacto;
 
@@ -32,6 +35,14 @@ public class Radio {
         EstadoTelefono = estadoTelefono;
         EnLlamada = enLlamada;
         UltimoContacto = ultimoContacto;
+    }
+    
+    public ArrayList<Contactos> getLlamadas() {
+        return Llamadas;
+    }
+
+    public void setLlamadas(ArrayList<Contactos> llamadas) {
+        Llamadas = llamadas;
     }
     
     public ArrayList<ListaReproduccion> getListasDeReproduccion() {
@@ -110,13 +121,19 @@ public class Radio {
     public Boolean getEstadoTelefono() {
         return EstadoTelefono;
     }
-    public void setEstadoTelefono(Boolean estadoTelefono) {
-        EstadoTelefono = estadoTelefono;
+    public Boolean setEstadoTelefono() {
+        if (EstadoTelefono==false){
+            EstadoTelefono= true;
+
+        }else if (EstadoTelefono== true){
+            EstadoTelefono= false;
+        }
+        return EstadoTelefono;
     }
-    public ArrayList<String> getContactos() {
+    public ArrayList<Contactos> getContactos() {
         return Contactos;
     }
-    public void setContactos(ArrayList<String> contactos) {
+    public void setContactos(ArrayList<Contactos> contactos) {
         Contactos = contactos;
     }
     public Boolean getEnLlamada() {

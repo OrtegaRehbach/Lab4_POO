@@ -149,7 +149,7 @@ public class Controlador implements IRadio, IReproducir,ITelefono, IVistaRadio, 
         //System.out.println(radio.getListasDeReproduccion().get(lista).getCanciones().get(CancionReproducida).getAutor());
 
         if (puntero==1){
-            if (validar>=0){
+            if (validar>0){
                 radio.getListasDeReproduccion().get(lista).getCanciones().get(CancionReproducida-1);
                 System.out.println(radio.getListasDeReproduccion().get(lista).getCanciones().get(CancionReproducida-1).getNombre());
                 System.out.println("se cambio la cancion");

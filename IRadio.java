@@ -1,9 +1,11 @@
-public interface IRadioB {
+public interface IRadio {
 
     // Metodos funcionales
     public boolean encender();
 
     public boolean apagar();
+
+    public boolean encendida();
 
     public boolean cambiarAModoRadio();
 
@@ -20,9 +22,11 @@ public interface IRadioB {
 
     public boolean guardarEmisora(double emisora);
 
-    public boolean cargarEmisora(double emisora);
+    public boolean cargarEmisora(int indiceEmisora);
 
     // Modo Reproduccion
+    public String mostrarPlaylists();
+
     public boolean seleccionarPlaylist(int indicePlaylist);
 
     public boolean cambiarCancion(boolean adelante);
@@ -40,10 +44,12 @@ public interface IRadioB {
 
     public boolean finalizarLlamada();
 
-    public String llamarUltimoContacto();   // Clase B
+    public boolean estaEnllamada();
+
+    // Llamar al ultimo contacto con el que se hablo (Clase B)
 
     // Modo Productividad
-    public String verTarjetasDePresentacion();  // Clase B
+    // Ver tarjetas de presentacion (Clase B)
 
     // Estado del Radio
     public String getEstado();
@@ -51,5 +57,5 @@ public interface IRadioB {
     // Gets
     public String getModo();
 
-    public String getFrecuencia();
+    public double getFrecuencia();
 }
